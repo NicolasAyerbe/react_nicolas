@@ -1,0 +1,22 @@
+table {
+  border: 1px solid black;
+}
+.principal{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+td {
+  padding: 15px;
+ 
+}
+
+.cursor-style {
+  cursor: pointer;
+  background-color: red;
+  color: whitesmoke;
+}
+.cursor-style:hover {
+  background-color: rgb(161, 2, 2);
+}
+
