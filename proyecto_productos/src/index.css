@@ -6,6 +6,9 @@ table {
   justify-content: center;
   align-items: center;
 }
+h1 {
+  text-align: center;
+}
 td {
   padding: 15px;
  
