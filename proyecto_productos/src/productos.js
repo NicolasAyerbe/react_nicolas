@@ -19,16 +19,23 @@ const list = [
 	}
 ];
 //46..<div key={item.id}>   70 </div>
+function buscar(nombre) {
+	return function(item) {
+		return item.nombre.toLowerCase().includes(nombre.toLowerCase())
+	}
+}
 class ProductosII extends Component {
 	constructor(props) {
 		super(props);
 		
 		this.state = {
 			list,
+			nombre: ''
 		};
 
 		this.Eliminar = 
 		this.Eliminar.bind(this);
+		this.onSearchChange = this.onSearchChange.bind(this);
 	}
 	
 	Eliminar(id) {
@@ -37,24 +44,30 @@ class ProductosII extends Component {
 		this.state.list.filter(isNotId);
 		this.setState({ list: listaActualizada });
 	}
+	onSearchChange(event) {
+		this.setState({ nombre: event.target.value});
+	}
    render() {
       return(
         <div><h1>listado </h1> 
 		<div className='principal'>
            
-            
+            <form>
+				<input type="text" onChange={this.onSearchChange}></input>
+			</form>
              <table>
                 <thead>
                      <tr>
                         <th>Nombre</th><th>Año</th><th>delete</th>
                         </tr>
                 </thead>
-			{this.state.list.map(item => 
+			
 				
                    
 					<tbody>
+					{this.state.list.filter(buscar(this.state.nombre)).map(item => 
                        
-                        <tr>
+                        <tr key={item.id}>
 
                             <td>
 						{item.nombre} 
@@ -72,10 +85,11 @@ class ProductosII extends Component {
                         </td>
 					
                     </tr>
+					)}
                     </tbody>
                     
 				
-			)}
+			
             
             </table>
 		</div>
