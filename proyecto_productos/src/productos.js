@@ -24,6 +24,7 @@ function buscar(nombre) {
 		return item.nombre.toLowerCase().includes(nombre.toLowerCase())
 	}
 }
+
 class ProductosII extends Component {
 	constructor(props) {
 		super(props);
